@@ -119,8 +119,7 @@ def main():
         model, is_conv, means, stds = read_net(args.net, num_pixels, is_trained_with_pytorch)
         eran = ERAN(model)
 
-    # csvfile = open('../../code/datasets/{}_test.csv'.format(args.dataset), 'r')
-    csvfile = open('/home/mislav/sri/geometric/code/datasets/{}_test.csv'.format(args.dataset), 'r')
+    csvfile = open('../../code/datasets/{}_test.csv'.format(args.dataset), 'r')
     tests = csv.reader(csvfile, delimiter=',')
 
     total, attacked, standard_correct, tot_time = 0, 0, 0, 0

@@ -44,7 +44,7 @@ $ source venv/bin/activate
 $ (venv) cd gurobi811/linux64
 $ (venv) python setup.py install
 $ (venv) cd ../../
-$ (venv) pip install eran/requirements.txt
+$ (venv) pip install ERAN/requirements.txt
 ```
 
 Then go to ERAN directory in this folder and follow the directions there to install ERAN analyzer.
@@ -64,7 +64,7 @@ Then we need to download the network and run the verifier:
 
 ```bash
 $ source venv/bin/activate
-$ (venv) cd eran/tf-verify
+$ (venv) cd ERAN/tf-verify
 $ (venv) wget https://files.sri.inf.ethz.ch/deepg/networks/mnist_1_rotation.pyt
 $ (venv) python deepg.py --net mnist_1_rotation.pyt --dataset mnist --data_dir ../../code/examples/example1 --num_params 1 --num_tests 1
 ```
@@ -108,7 +108,7 @@ Here is an example how to reproduce the results for the experiment with MNIST an
 
 ```bash
 $ source venv/bin/activate
-$ (venv) cd eran/tf-verify
+$ (venv) cd ERAN/tf-verify
 $ (venv) wget https://files.sri.inf.ethz.ch/deepg/networks/mnist_2_translation.pyt
 $ (venv) python deepg.py --net mnist_2_translation.pyt --dataset mnist --data_dir ../../constraints/mnist_2_translation --num_params 2 --num_tests 100
 ```
