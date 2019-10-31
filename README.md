@@ -32,7 +32,8 @@ $ cd ../../../../
 Now you should be able to compile DeepG:
 
 ```
-$ cd code
+$ cd deepg/code
+$ mkdir build
 $ make deepg_constraints
 ```
 
@@ -44,11 +45,11 @@ $ source venv/bin/activate
 $ (venv) cd gurobi811/linux64
 $ (venv) python setup.py install
 $ (venv) cd ../../
-$ (venv) pip install ERAN/requirements.txt
 ```
 
 Then go to ERAN directory in this folder and follow the directions there to install ERAN analyzer.
 Note that this is a fork of official [ERAN](https://github.com/eth-sri/eran/) analyzer.
+As of now, ERAN will run only on CPU. GPU support will be added soon. The outputs will be the same, just the timing will be improved. 
 
 ## Example of certification
 
