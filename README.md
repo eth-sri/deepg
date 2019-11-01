@@ -42,14 +42,17 @@ Next, create a virtual environment, install Gurobi Python bindings and other req
 ```bash
 $ virtualenv venv
 $ source venv/bin/activate
-$ (venv) cd gurobi811/linux64
+$ (venv) cd ../../gurobi811/linux64
 $ (venv) python setup.py install
-$ (venv) cd ../../
+```
+Next, we install ERAN. Note that this is a fork of official [ERAN](https://github.com/eth-sri/eran/) analyzer.
+As of now, ERAN will run only on CPU. GPU support will be added soon. The outputs will be the same, just the timing will be improved.
+```
+$ (venv) cd ../ERAN/
+$ (venv) ./install.sh
+$ (venv) pip3 install -r requirements.txt
 ```
 
-Then go to ERAN directory in this folder and follow the directions there to install ERAN analyzer.
-Note that this is a fork of official [ERAN](https://github.com/eth-sri/eran/) analyzer.
-As of now, ERAN will run only on CPU. GPU support will be added soon. The outputs will be the same, just the timing will be improved. 
 
 ## Example of certification
 
