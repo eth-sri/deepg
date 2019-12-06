@@ -52,6 +52,19 @@ void Image::print_csv(std::ofstream& fou) const {
   fou << std::endl;
 }
 
+vector<double> Image::to_vector() const {
+  vector<double> result;
+  for (int i = 0; i < nRows; ++i) {
+    for (int j = 0; j < nCols; ++j) {
+        for (int k = 0; k < nChannels; ++k) {
+            result.push_back(a[i][j][k].inf);
+            result.push_back(a[i][j][k].sup);
+        }
+    }
+  }
+  return result;
+}
+
 void Image::print_ascii() const {
   std::cout << "====================================================================" << std::endl;
   double sum_widths = 0;

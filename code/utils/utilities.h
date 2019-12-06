@@ -34,6 +34,7 @@ public:
   }
   Image(int nRows, int nCols, int nChannels, std::string line, double noise);
   void print_ascii() const;
+  vector<double> to_vector() const;
   void print_csv(std::ofstream& fou) const;
 
   Interval find_pixel(int x, int y, int i) const;

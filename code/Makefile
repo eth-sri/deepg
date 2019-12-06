@@ -9,3 +9,5 @@ deepg_constraints: deepg_constraints.cpp
 	g++ -O3 -march=native -mavx2 -mfma deepg_constraints.cpp $(UTILS) $(DOMAINS) $(TRANSFORMS) $(ABSTRACTION) -I${CURDIR} $(GUROBI_FLAGS) -o build/deepg_constraints -std=c++11 -lpthread
 
 
+shared_object: geometric_constraints.cpp
+	g++ -Wl,-soname,libgeometric.so -o build/libgeometric.so -shared -fPIC -O3 -march=native -mavx2 -mfma geometric_constraints.h geometric_constraints.cpp $(UTILS) $(DOMAINS) $(TRANSFORMS) $(ABSTRACTION) -I${CURDIR} $(GUROBI_FLAGS) -std=c++11 -lpthread

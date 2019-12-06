@@ -32,6 +32,18 @@ Interval Polyhedra::evaluate(PointD p) {
   return {lb, ub};
 }
 
+std::vector<double> Polyhedra::to_vector() {
+  std::vector<double> result;
+  result.push_back(biasLower);
+  for (size_t i = 0; i < wLower.size(); ++i) {
+    result.push_back(wLower[i]);
+  }
+  result.push_back(biasUpper);
+  for (size_t i = 0; i < wUpper.size(); ++i) {
+    result.push_back(wUpper[i]);
+  }
+  return result;
+}
 
 std::ostream& operator << (std::ostream& os, const Polyhedra& p) {
   os << p.biasLower;
