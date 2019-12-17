@@ -227,7 +227,7 @@ TransformAttackContainer* getTransformAttackContainer(char* config_location) {
 
     assert(dataset == "mnist" || dataset == "fashion" || dataset == "cifar10" || dataset == "imagenet");
 
-    string images = "../geometric/code/datasets/" + dataset + "_" + set + ".csv";
+    string images = "../deepg/code/datasets/" + dataset + "_" + set + ".csv";
 
 	int nRows, nCols;
 	if (dataset == "cifar10") {

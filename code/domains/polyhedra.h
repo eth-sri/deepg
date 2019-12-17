@@ -22,8 +22,8 @@ public:
 	      int degree);
 
     Interval evaluate(PointD p);
+	std::vector<double> to_vector();
 };
 
 std::ostream& operator << (std::ostream& os, const Polyhedra& p);
 
-std::vector<double> to_vector();
