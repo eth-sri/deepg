@@ -264,11 +264,7 @@ TransformAttackContainer* getTransformAttackContainer(char* config_location) {
                                     verificationChunks);
 }
 
-void TransformAttackContainer::setTransformationsAndAttacksFor(int image_number) {
-    this -> setTransformationsAndAttacksFor(image_number, false);
-}
-
-void TransformAttackContainer::setTransformationsAndAttacksFor(int image_number, bool verbose) {
+void TransformAttackContainer::setTransformationsAndAttacksFor(int image_number, bool attack, bool verbose) {
     if (!verbose) {
         cout.setstate(ios_base::failbit);
     } else {
@@ -301,10 +297,17 @@ void TransformAttackContainer::setTransformationsAndAttacksFor(int image_number,
     // iteration over images
     Statistics counter;
 
+	int num_attacks;
+    if (attack) {
+	  num_attacks = Constants::NUM_ATTACKS;
+    }
+    else {
+        num_attacks = 0;
+    }
 
     auto attacks = generateAttacksOutVector(
             attack_param_vector, attack_image_vector, combinedDomain, spatialTransformation, pixelTransformation,
-            interpolationTransformation, img, Constants::NUM_ATTACKS);
+            interpolationTransformation, img, num_attacks);
     cout << "created attacks" << endl;
     vector<bool> checked(attacks.size(), false);
     vector<bool> checkedPoly(attacks.size(), false);

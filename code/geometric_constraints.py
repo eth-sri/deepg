@@ -15,12 +15,12 @@ def get_transform_attack_container(config):
     return transforms_attack_container
 
 
-def set_transform_attack_for(container, i):
+def set_transform_attack_for(container, i, attack=True, verbose=False):
     try:
         set_transform_attack_for_cpp = geometric_api.setTransformationsAndAttacksFor
         set_transform_attack_for_cpp.restype = None
-        set_transform_attack_for_cpp.argtypes = [TransformAttackContainerPtr, c_int]
-        set_transform_attack_for_cpp(container, i)
+        set_transform_attack_for_cpp.argtypes = [TransformAttackContainerPtr, c_int, c_bool, c_bool]
+        set_transform_attack_for_cpp(container, i, attack, verbose)
     except:
         print('set_transform_attack_for did not work')
 

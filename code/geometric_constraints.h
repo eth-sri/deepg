@@ -44,13 +44,12 @@ class TransformAttackContainer{
         vector<int> transform_vector_dim_1;
 
         // ---- Methods
-        void setTransformationsAndAttacksFor(int image_number);
-        void setTransformationsAndAttacksFor(int image_number, bool verbose);
+        void setTransformationsAndAttacksFor(int image_number, bool attack, bool verbose);
 };
 TransformAttackContainer* getTransformAttackContainer(char* config);
 
-void setTransformationsAndAttacksFor(TransformAttackContainer& container, int image_number) {
-    container.setTransformationsAndAttacksFor(image_number);
+void setTransformationsAndAttacksFor(TransformAttackContainer& container, int image_number, bool attack, bool verbose) {
+    container.setTransformationsAndAttacksFor(image_number, attack, verbose);
 };
 
 // this works because vectors are continuous in memory
@@ -79,6 +78,9 @@ int get_attack_params_dim_0(TransformAttackContainer& container) {
 };
 
 int get_attack_params_dim_1(TransformAttackContainer& container) {
+    if (container.attack_param_vector.size() == 0) {
+	  return 0;
+	}
     return container.attack_param_vector[0].size();
 };
 
@@ -91,6 +93,9 @@ int get_attack_images_dim_0(TransformAttackContainer& container) {
 };
 
 int get_attack_images_dim_1(TransformAttackContainer& container) {
+    if (container.attack_image_vector.size() == 0) {
+        return 0;
+    }
     return container.attack_image_vector[0].size();
 };
 } // end extern "C"
